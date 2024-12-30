@@ -2,6 +2,7 @@
 const express = require('express');
 const app = express();
 require('dotenv').config(); // Load environment variables early
+const cors  = require('cors')
 
 
 global.DB_NAME = process.env.DB_NAME
@@ -20,6 +21,9 @@ app.use(express.json());
 
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
+
+// allow cors
+app.use(cors())
 
 
 //register the routes with base path
